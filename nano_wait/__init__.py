@@ -47,6 +47,16 @@ try:
 except ImportError:
     Agent = None  # type: ignore
 
+# ✨ Novos módulos v7.1
+from .stats import ExecutionStats, get_stats
+from .config import WaitConfig, get_config, set_config
+from .events import (
+    EventBus, WaitEvent, WaitEventType, get_event_bus,
+    on, on_success, on_timeout, on_error, emit_event
+)
+from .limiter import RateLimiter, CircuitBreaker, AdaptiveBackoff
+from .context import ExecutionContext, ContextManager
+
 __all__ = [
     # Core API
     "wait",
@@ -86,4 +96,33 @@ __all__ = [
 
     # Experimental
     "Agent",
+
+    # ✨ v7.1: Statistics & Metrics
+    "ExecutionStats",
+    "get_stats",
+
+    # ✨ v7.1: Configuration
+    "WaitConfig",
+    "get_config",
+    "set_config",
+
+    # ✨ v7.1: Events & Webhooks
+    "EventBus",
+    "WaitEvent",
+    "WaitEventType",
+    "get_event_bus",
+    "on",
+    "on_success",
+    "on_timeout",
+    "on_error",
+    "emit_event",
+
+    # ✨ v7.1: Rate Limiting
+    "RateLimiter",
+    "CircuitBreaker",
+    "AdaptiveBackoff",
+
+    # ✨ v7.1: Context Management
+    "ExecutionContext",
+    "ContextManager",
 ]
